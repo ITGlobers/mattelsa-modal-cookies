@@ -9,12 +9,12 @@ type Props = {
 }
 
 const CSS_HANDLES = [
-  'container',
-  'buttons',
-  'buttonAccept',
-  'buttonCancel',
-  'container__tittle',
-  'container__paragraph']
+  "container",
+  "buttons",
+  "buttonAccept",
+  "buttonCancel",
+  "container__tittle",
+  "container__paragraph"]
 
 const ModalCookies = ({ titleCookies, messageCookies }: Props) => {
   const handles = useCssHandles(CSS_HANDLES)
