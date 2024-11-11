@@ -1,0 +1,43 @@
+/* Contenedor del modal en la parte inferior */
+.container {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 350px;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 20px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.3);
+  color: white;
+  z-index: 1000;
+}
+
+/* Contenedor de los botones */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+/* Botón de Aceptar */
+.buttonAccept {
+  padding: 8px 16px;
+  background-color: #4caf50; /* Verde */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Botón de Cancelar */
+.buttonCancel {
+  padding: 8px 16px;
+  background-color: #f44336; /* Rojo */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
