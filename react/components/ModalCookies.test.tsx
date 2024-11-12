@@ -1,6 +1,6 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
-import ModalCookies from "./ModalCookies"; // Asegúrate de importar correctamente el componente
+import { render, screen, fireEvent } from "@testing-library/react";
+import ModalCookies from "./ModalCookies";
 
 // Mock de vtex.css-handles
 jest.mock('vtex.css-handles', () => ({
@@ -16,11 +16,37 @@ jest.mock('vtex.css-handles', () => ({
 
 describe("ModalCookies Component", () => {
   it("should render the title and message correctly", () => {
-    // Renderiza el componente con valores específicos para el título y el mensaje
     render(<ModalCookies titleCookies="Política de Cookies" messageCookies="Por favor, acepta las cookies." />);
-
-    // Verifica que el título y el mensaje estén presentes en el DOM
     expect(screen.getByText("Política de Cookies")).toBeInTheDocument();
     expect(screen.getByText("Por favor, acepta las cookies.")).toBeInTheDocument();
+  });
+});
+
+describe("ModalCookies Component - localStorage", () => {
+  beforeEach(() => {
+    localStorage.clear();
+  });
+
+  it("should set cookiesAccepted to 'true' in localStorage when 'Aceptar' is clicked", () => {
+    render(<ModalCookies titleCookies="Política de Cookies" messageCookies="Por favor, acepta las cookies." />);
+
+    expect(screen.getByText("Política de Cookies")).toBeInTheDocument();
+    expect(screen.getByText("Por favor, acepta las cookies.")).toBeInTheDocument();
+    fireEvent.click(screen.getByText("Aceptar"));
+    expect(screen.queryByText("Política de Cookies")).not.toBeInTheDocument();
+    expect(localStorage.getItem("cookiesAccepted")).toBe("true");
+  });
+
+  it("should not render the modal if cookiesAccepted is already true", () => {
+    localStorage.setItem("cookiesAccepted", "true");
+    render(<ModalCookies titleCookies="Política de Cookies" messageCookies="Por favor, acepta las cookies." />);
+    expect(screen.queryByText("Política de Cookies")).not.toBeInTheDocument();
+  });
+
+  it("should set cookiesAccepted to 'true' in localStorage when 'Cancelar' is clicked", () => {
+    render(<ModalCookies titleCookies="Política de Cookies" messageCookies="Por favor, acepta las cookies." />);
+    fireEvent.click(screen.getByText("Cancelar"));
+    expect(screen.queryByText("Política de Cookies")).not.toBeInTheDocument();
+    expect(localStorage.getItem("cookiesAccepted")).toBe("true");
   });
 });

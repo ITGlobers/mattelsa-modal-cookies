@@ -11,14 +11,12 @@
   font-family: 'Gotham';
 }
 
-/* Contenedor de los botones */
 .buttons {
   display: flex;
   flex-direction: column;
   margin-top: 16px;
 }
 
-/* Botón de Aceptar */
 .buttonAccept {
   padding: 8px 16px;
   background-color: #3A4132CC;
@@ -28,7 +26,6 @@
   cursor: pointer;
 }
 
-/* Botón de Cancelar */
 .buttonCancel {
   margin-top: 14px;
   padding: 8px 16px;
@@ -53,13 +50,12 @@
   padding-bottom: 13px;
 }
 
-
 @media screen and (width >= 600px) {
   .container {
     max-width: 350px;
-    left: 0; /* Alinea el modal a la izquierda */
-    transform: translateX(0); /* Remueve el centrado */
-    margin-left: 20px; /* Espacio desde el borde izquierdo */
+    left: 0;
+    transform: translateX(0);
+    margin-left: 20px;
   }
 }
 

@@ -26,18 +26,17 @@ const ModalCookies = ({ titleCookies, messageCookies }: Props) => {
 
   const closeModal = () => {
     setIsVisible(false);
-    localStorage.setItem("cookiesAccepted", "true"); // Guardar en localStorage
+    localStorage.setItem("cookiesAccepted", "true");
   }
 
   useEffect(() => {
-    // Comprobar al cargar el componente si el usuario ya aceptó los términos
     const cookiesAccepted = localStorage.getItem("cookiesAccepted");
     if (cookiesAccepted === "true") {
       setIsVisible(false);
     }
   }, []);
 
-  if (!isVisible) return null; // Si el modal no es visible, no renderizar nada
+  if (!isVisible) return null;
 
   return (
     <>
