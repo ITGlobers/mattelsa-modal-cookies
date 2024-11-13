@@ -1,7 +1,7 @@
 {
   "vendor": "mattelsaqa",
   "name": "modal-cookies-info",
-  "version": "0.0.1",
+  "version": "0.0.2-0",
   "title": "Modal cookies component",
   "description": "componente que muestra información sobre las cookies, recibe un titulo, una descripción y tiene dos botones que solo se encargan de cerrar el modal",
   "builders": {
