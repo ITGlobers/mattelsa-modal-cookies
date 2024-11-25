@@ -1,7 +1,7 @@
 {
   "vendor": "b2cmattelsa",
   "name": "modal-cookies-info",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "title": "Modal cookies component",
   "description": "componente que muestra información sobre las cookies, recibe un titulo, una descripción y tiene dos botones que solo se encargan de cerrar el modal",
   "builders": {
